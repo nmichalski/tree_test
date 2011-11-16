@@ -1,5 +1,5 @@
 class TreeNode
-  attr_reader :children
+  attr :children
   attr_reader :parent
   attr_accessor :name
 
