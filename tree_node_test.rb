@@ -16,6 +16,17 @@ class TreeNodeTest < Test::Unit::TestCase
     assert_nil(@tree_node.parent)
   end
 
+  def test_name_setter_method
+    assert_nothing_raised do
+      @tree_node.name = "Test Tree"
+    end
+  end
+
+  def test_name_getter_method
+    @tree_node.name = "Test"
+    assert_equal("Test", @tree_node.name)
+  end
+
 end
 
 class TreeNodeChildAssignmentTest < Test::Unit::TestCase
