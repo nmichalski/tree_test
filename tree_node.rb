@@ -9,7 +9,7 @@ class TreeNode
   end
 
   def add_child(child)
-    @children << child if child.parent = self
+    child.parent = self if @children << child
   end
 
   def children_count
@@ -18,6 +18,10 @@ class TreeNode
 
   def parent=(new_parent)
     @parent = new_parent
+  end
+  
+  def is_child_node?(node)
+    @children.include? node
   end
 
 end

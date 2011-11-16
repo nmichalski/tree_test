@@ -17,14 +17,15 @@ class TreeNodeTest < Test::Unit::TestCase
   end
 
   def test_name_setter_method
-    assert_nothing_raised do
+    assert_nothing_raised NoMethodError do
       @tree_node.name = "Test Tree"
     end
   end
 
   def test_name_getter_method
     @tree_node.name = "Test"
-    assert_equal("Test", @tree_node.name)
+    assert_equal("Test", @tree_node.name,
+                 "should have implemented name= method")
   end
 
 end
@@ -43,7 +44,13 @@ class TreeNodeChildAssignmentTest < Test::Unit::TestCase
   end
 
   def test_parent_assignment
-    assert_equal(@tree_node, @child_node.parent)
+    assert_equal(@tree_node, @child_node.parent,
+                 "should have a parent when added as a child")
+  end
+
+  def test_is_child_node_method
+    assert(@tree_node.is_child_node?(@child_node),
+           "should respond to predicate instance method is_child_node?")
   end
 
 end
