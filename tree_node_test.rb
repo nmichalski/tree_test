@@ -61,3 +61,21 @@ class TreeNodeChildAssignmentTest < Test::Unit::TestCase
   end
 
 end
+
+class TreeNodePathTest < Test::Unit::TestCase
+
+  def setup
+    @grandchild_node = TreeNode.new("Grandchild")
+    @child_node = TreeNode.new("Child")
+    @parent_node = TreeNode.new("Parent")
+
+    @parent_node.add_child(@child_node)
+    @child_node.add_child(@grandchild_node)
+  end
+
+  def test_path_to_node_method
+    assert_equal("Parent>Child>Grandchild", @grandchild_node.path_to_node,
+                 "should display full path from tree root to node")
+  end
+
+end

@@ -8,10 +8,15 @@ class TreeNode
     @children = []
   end
 
-  def add_child(child)
+  def remove_child_from_parent(child)
     if child.parent
       child.parent.children.delete(child)
     end
+  end
+
+  def add_child(child)
+    # TODO: refactor pseudo-atomic calls
+    child.parent = nil if remove_child_from_parent(child)
     child.parent = self if @children << child
   end
 
@@ -25,6 +30,15 @@ class TreeNode
   
   def has_child_node?(node)
     @children.include? node
+  end
+
+  def path_to_node
+    path = ""
+    if parent
+      path = "#{parent.path_to_node}>"
+    end
+
+    path += @name
   end
 
 end
