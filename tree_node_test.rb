@@ -79,3 +79,34 @@ class TreeNodePathTest < Test::Unit::TestCase
   end
 
 end
+
+class TreeNodeTraversalTest < Test::Unit::TestCase
+
+  def setup
+    @a_node = TreeNode.new("A")
+    @b_node = TreeNode.new("B")
+    @c_node = TreeNode.new("C")
+    @d_node = TreeNode.new("D")
+    @e_node = TreeNode.new("E")
+    @f_node = TreeNode.new("F")
+    @g_node = TreeNode.new("G")
+
+    @a_node.add_child(@b_node)
+    @a_node.add_child(@c_node)
+
+    @b_node.add_child(@d_node)
+    @b_node.add_child(@e_node)
+
+    @e_node.add_child(@f_node)
+    @e_node.add_child(@g_node)
+  end
+
+  def test_preorder_traversal
+    expected_traversal = ["A", "B", "D", "E", "F", "G", "C"]
+
+    @a_node.preorder_traversal do |node|
+      assert_equal(expected_traversal.shift, node.name)
+    end
+  end
+
+end

@@ -8,16 +8,9 @@ class TreeNode
     @children = []
   end
 
-  def remove_child_from_parent(child)
-    if child.parent
-      child.parent.children.delete(child)
-    end
-  end
-
   def add_child(child)
-    # TODO: refactor pseudo-atomic calls
-    child.parent = nil if remove_child_from_parent(child)
-    child.parent = self if @children << child
+    child.parent = self
+    @children << child
   end
 
   def children_count
@@ -25,6 +18,7 @@ class TreeNode
   end
 
   def parent=(new_parent)
+    @parent.children.delete(self) if @parent
     @parent = new_parent
   end
   
@@ -34,11 +28,15 @@ class TreeNode
 
   def path_to_node
     path = ""
-    if parent
-      path = "#{parent.path_to_node}>"
-    end
-
+    path = "#{parent.path_to_node}>" if parent
     path += @name
+  end
+
+  def preorder_traversal(&block)
+    block.call(self)
+    self.children.each do |child|
+      child.preorder_traversal(&block)
+    end
   end
 
 end
