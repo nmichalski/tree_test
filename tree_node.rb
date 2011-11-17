@@ -22,7 +22,7 @@ class TreeNode
     @parent = new_parent
   end
   
-  def has_child_node?(node)
+  def has_child?(node)
     @children.include? node
   end
 

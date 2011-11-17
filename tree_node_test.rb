@@ -48,15 +48,15 @@ class TreeNodeChildAssignmentTest < Test::Unit::TestCase
                  "should have a parent when added as a child")
   end
 
-  def test_has_child_node_method
-    assert(@tree_node.has_child_node?(@child_node),
+  def test_has_child_method
+    assert(@tree_node.has_child?(@child_node),
            "should accurately reflect whether child_node is child of tree_node")
   end
 
   def test_parent_reassignment
     @uncle_node = TreeNode.new
     @uncle_node.add_child(@child_node)
-    assert(!@tree_node.has_child_node?(@child_node),
+    assert(!@tree_node.has_child?(@child_node),
            "should remove child_node from tree_node's children when reassigning parent")
   end
 
