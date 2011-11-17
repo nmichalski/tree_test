@@ -1,0 +1,29 @@
+Hi there,
+
+I enjoyed working through the TreeNode coding practice.
+The only negative comment I have to make is the ambiguous wording of step #6.
+
+It reads: 
+  Add a method to TreeNode that facilitates performing a depth-first search.
+My thoughts:
+  The rest of the description of the method's behavior does not reflect that of a search method. What is your goal here?
+It reads:
+  This method should take a block and yield the receiver and its decendants to the block one at a time.
+My thoughts:
+  Ok, so calling this method yields EVERY node in a tree to the block, if we were to call it on the root node.
+It reads:
+  Calling said method on node 'A' should yield the nodes 'B', 'D', 'E', 'F', 'G', and 'C' to the block.
+My thoughts:
+  Well, given that example, it looks like it should yield every node in the tree EXCEPT the root node.
+It reads:
+  Please note that the order is important.
+My thoughts:
+  Ok, so you want a preorder traversal. Why didn't you say that at the beginning, instead of depth-first search?
+
+
+Hopefully that is an understandable digestion of that step's requirements.
+
+Other than that, I would continue to administer this challenge.
+
+Thanks,
+-Nick

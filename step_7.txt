@@ -1,0 +1,14 @@
+GitHub:
+-https://github.com/nmichalski
+
+Personal Website:
+-<No longer up, though feel free to ask about it>
+
+Personal Project:
+-https://github.com/nmichalski/movie-renamer
+
+Email Address:
+-Nicholas.A.Michalski@gmail.com
+
+Version of Ruby used:
+-ruby-1.9.2-p180
