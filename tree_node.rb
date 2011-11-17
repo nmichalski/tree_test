@@ -28,7 +28,7 @@ class TreeNode
 
   def path_to_node
     path = ""
-    path = "#{parent.path_to_node}>" if parent
+    path = "#{parent.path_to_node} > " if parent
     path += @name
   end
 

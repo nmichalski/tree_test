@@ -74,7 +74,7 @@ class TreeNodePathTest < Test::Unit::TestCase
   end
 
   def test_path_to_node_method
-    assert_equal("Parent>Child>Grandchild", @grandchild_node.path_to_node,
+    assert_equal("Parent > Child > Grandchild", @grandchild_node.path_to_node,
                  "should display full path from tree root to node")
   end
 
